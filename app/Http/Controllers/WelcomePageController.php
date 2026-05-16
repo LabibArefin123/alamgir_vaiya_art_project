@@ -1,6 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 class WelcomePageController extends Controller
 {
     public function index()
@@ -46,7 +51,6 @@ class WelcomePageController extends Controller
 
         return view('frontend.welcome', compact('latestImages'));
     }
-
     public function gallery()
     {
         $basePath = public_path('uploads/images');
@@ -57,42 +61,93 @@ class WelcomePageController extends Controller
 
             $folders = File::directories($basePath);
 
-            // Latest folders first
-            usort($folders, function ($a, $b) {
-                return filemtime($b) - filemtime($a);
-            });
-
-            foreach ($folders as $folder) {
+            $folderCollection = collect($folders)->map(function ($folder) {
 
                 $folderName = basename($folder);
 
-                $images = [];
+                try {
 
-                foreach (File::files($folder) as $file) {
+                    /*
+                |--------------------------------------------------------------------------
+                | Convert Folder Name To Real Date
+                |--------------------------------------------------------------------------
+                | Example:
+                | 2 November 2021
+                |--------------------------------------------------------------------------
+                */
 
-                    $extension = strtolower($file->getExtension());
+                    $carbonDate = Carbon::createFromFormat(
+                        'j F Y',
+                        $folderName
+                    );
+                } catch (\Exception $e) {
 
-                    if (in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                    return null;
+                }
 
-                        $images[] = asset(
+                return [
+                    'path' => $folder,
+                    'name' => $folderName,
+                    'date' => $carbonDate,
+                ];
+            })->filter();
+
+            /*
+        |--------------------------------------------------------------------------
+        | Sort Latest To Oldest Properly
+        |--------------------------------------------------------------------------
+        */
+
+            $folderCollection = $folderCollection
+                ->sortByDesc('date')
+                ->values();
+
+            foreach ($folderCollection as $folderData) {
+
+                $folder = $folderData['path'];
+
+                $folderName = $folderData['name'];
+
+                $formattedDate = $folderData['date']
+                    ->format('d F Y');
+
+                $monthYear = $folderData['date']
+                    ->format('F Y');
+
+                $images = collect(File::files($folder))
+                    ->filter(function ($file) {
+
+                        return in_array(
+                            strtolower($file->getExtension()),
+                            ['jpg', 'jpeg', 'png', 'webp']
+                        );
+                    })
+                    ->map(function ($file) use ($folderName) {
+
+                        return asset(
                             'uploads/images/' .
                                 $folderName . '/' .
                                 $file->getFilename()
                         );
-                    }
-                }
+                    })
+                    ->values()
+                    ->toArray();
 
                 if (!empty($images)) {
 
                     $galleryFolders[] = [
-                        'date' => $folderName,
-                        'slug' => \Illuminate\Support\Str::slug($folderName),
-                        'images' => $images
+                        'date'        => $formattedDate,
+                        'month_year'  => $monthYear,
+                        'slug'        => Str::slug($folderName),
+                        'images'      => $images,
                     ];
                 }
             }
         }
 
-        return view('frontend.gallery', compact('galleryFolders'));
+        return view(
+            'frontend.gallery',
+            compact('galleryFolders')
+        );
     }
 }

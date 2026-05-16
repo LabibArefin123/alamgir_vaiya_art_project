@@ -1,27 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const filterButtons = document.querySelectorAll(".filter-btn");
+    const filterDropdown = document.getElementById("galleryFilter");
+    const searchInput = document.getElementById("gallerySearch");
     const galleryCards = document.querySelectorAll(".gallery-card");
 
-    filterButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            filterButtons.forEach((btn) => {
-                btn.classList.remove("active");
-            });
+    function filterGallery() {
+        const selectedFilter = filterDropdown.value.toLowerCase();
 
-            this.classList.add("active");
+        const searchValue = searchInput.value.toLowerCase().trim();
 
-            const filter = this.getAttribute("data-filter");
+        galleryCards.forEach((card) => {
+            const category = card.getAttribute("data-category").toLowerCase();
 
-            galleryCards.forEach((card) => {
-                if (
-                    filter === "all" ||
-                    card.getAttribute("data-category") === filter
-                ) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+            const date = card.getAttribute("data-date").toLowerCase();
+
+            const matchesDropdown =
+                selectedFilter === "all" || category === selectedFilter;
+
+            const matchesSearch = date.includes(searchValue);
+
+            if (matchesDropdown && matchesSearch) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
         });
-    });
+    }
+
+    filterDropdown.addEventListener("change", filterGallery);
+
+    searchInput.addEventListener("keyup", filterGallery);
 });

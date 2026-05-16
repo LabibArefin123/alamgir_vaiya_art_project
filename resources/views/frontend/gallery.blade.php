@@ -8,23 +8,51 @@
 
     <section class="gallery-page">
 
-        <div class="container">
+        <div class="gallery-container">
 
             <div class="gallery-top">
 
                 <h2>Art Gallery</h2>
 
-                <div class="gallery-filter">
+                <div class="gallery-filter-wrapper">
 
-                    <button class="filter-btn active" data-filter="all">
-                        All
-                    </button>
+                    <!-- Search -->
+                    <div class="gallery-search-box">
 
-                    @foreach ($galleryFolders as $folder)
-                        <button class="filter-btn" data-filter="{{ $folder['slug'] }}">
-                            {{ $folder['date'] }}
-                        </button>
-                    @endforeach
+                        <input type="text" id="gallerySearch" placeholder="Search by date...">
+
+                    </div>
+
+                    <!-- Dropdown Filter -->
+                    <div class="gallery-dropdown-box">
+
+                        <select id="galleryFilter">
+
+                            <option value="all">
+                                All Gallery
+                            </option>
+
+                            @php
+                                $groupedFolders = collect($galleryFolders)->groupBy('month_year');
+                            @endphp
+
+                            @foreach ($groupedFolders as $monthYear => $folders)
+                                <optgroup label="{{ $monthYear }}">
+
+                                    @foreach ($folders as $folder)
+                                        <option value="{{ $folder['slug'] }}">
+
+                                            {{ $folder['date'] }}
+
+                                        </option>
+                                    @endforeach
+
+                                </optgroup>
+                            @endforeach
+
+                        </select>
+
+                    </div>
 
                 </div>
 
@@ -34,7 +62,8 @@
 
                 @foreach ($galleryFolders as $folder)
                     @foreach ($folder['images'] as $image)
-                        <div class="gallery-card" data-category="{{ $folder['slug'] }}">
+                        <div class="gallery-card" data-category="{{ $folder['slug'] }}"
+                            data-date="{{ strtolower($folder['date']) }}">
 
                             <img src="{{ $image }}" alt="Gallery Image" class="zoomable-image">
 
@@ -51,18 +80,7 @@
         </div>
 
     </section>
-
     @include('frontend.partials.image-zoom-modal')
-
     @include('frontend.welcome_page.footer')
-
 @endsection
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/gallery.css') }}">
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('frontend/js/gallery.js') }}"></script>
-    <script src="{{ asset('frontend/js/image-zoom-modal.js') }}"></script>
-@endpush
+{{--

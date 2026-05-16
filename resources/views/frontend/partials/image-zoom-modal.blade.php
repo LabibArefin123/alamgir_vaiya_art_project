@@ -1,14 +1,13 @@
 <div class="image-modal" id="imageModal">
 
-    <span class="close-modal" id="closeModal">
-        &times;
-    </span>
+    <div class="image-modal-wrapper">
 
-    <img
-        class="modal-image"
-        id="modalImage"
-        src=""
-        alt="Zoomed Image"
-    >
+        <button type="button" class="close-modal" id="closeModal">
+            &times;
+        </button>
+
+        <img src="" alt="Zoom Image" class="modal-image" id="modalImage">
+
+    </div>
 
 </div>

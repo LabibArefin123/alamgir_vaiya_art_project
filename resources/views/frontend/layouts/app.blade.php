@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/custom_gallery.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-filter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/zoom_modal.css') }}">
 </head>
 
