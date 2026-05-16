@@ -1,0 +1,82 @@
+/* public/frontend/css/header.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    color: #222;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    background: #ffffff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left h2 {
+    font-size: 28px;
+    color: #111;
+}
+
+.nav-left small {
+    color: #777;
+    font-size: 14px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    margin-left: 25px;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-right a:hover {
+    color: #c49b63;
+}
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #c49b63;
+    z-index: 9999;
+}
+
+#backToTop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    display: none;
+    font-size: 18px;
+}

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   
+
     <title>
         @yield('title', config('app.name'))
     </title>
@@ -22,24 +22,25 @@
 
     <!-- Vite (ONLY JS ENTRY POINT) -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
 </head>
 
 <body>
     <div id="app">
-        <!-- Scroll Progress -->
-        <div id="scrollProgress"></div>
-
+        {{-- Scroll Progress --}}
+        <div id="scroll-progress"></div>
+        {{-- Back To Top --}}
+        <button id="backToTop">↑</button>
         <!-- MAIN CONTENT -->
         <main>
             @yield('content')
         </main>
     </div>
-
-    <!-- BACK TO TOP -->
-    <button id="backToTop" class="back-to-top">
-        <i class="bi bi-arrow-up"></i>
-    </button>
-
+    <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>
+    <script src="{{ asset('js/frontend/back-to-top.js') }}"></script>
     <!-- External JS only -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

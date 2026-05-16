@@ -1,124 +1,76 @@
-.techno-about {
-    background: #f8f9fa;
+/* public/frontend/css/about.css */
+
+section {
+    padding: 80px 0;
 }
 
-/* Title */
-.about-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: #0d3b66;
+section h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #111;
 }
 
-.about-tagline {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* Text */
-.about-text {
-    font-size: 15.5px;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 15px;
-}
-
-.about-heading {
+section p {
     font-size: 18px;
-    font-weight: 600;
-    color: #0d3b66;
-    margin-bottom: 8px;
-}
-
-.about-small-text {
-    font-size: 14.5px;
     color: #555;
-    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-/* IMAGE SECTION */
-.about-image-wrapper {
-    min-height: 400px;
+.journey-item,
+.education-item,
+.art-item {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
-/* Enable smooth transition */
-.image-card {
-    position: absolute;
-    width: 600px;
-    height: 350px;
-    border-radius: 15px;
+
+.journey-item:hover,
+.education-item:hover,
+.art-item:hover {
+    transform: translateY(-5px);
+}
+
+.journey-item h3,
+.education-item h3,
+.art-item h3 {
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.art-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: all 0.6s ease-in-out;
+    border: 1px solid #eee;
 }
 
-.image-card img {
+.gallery-item img {
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
 }
 
-/* Default Positions */
-.image-card-1 {
-    top: 0;
-    right: 40px;
-    z-index: 2;
+.gallery-item h3 {
+    padding: 20px 20px 10px;
 }
 
-.image-card-2 {
-    top: 120px;
-    right: 0;
-    z-index: 1;
-}
-
-/* Swapped State */
-.image-card-1.swapped {
-    top: 120px;
-    right: 0;
-    z-index: 1;
-}
-
-.image-card-2.swapped {
-    top: 0;
-    right: 40px;
-    z-index: 2;
-}
-/* Hover effect */
-.image-card:hover {
-    transform: scale(1.05);
-}
-
-/* Floating Animation */
-@keyframes floatUpDown {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .about-image-wrapper {
-        position: relative;
-        height: 500px;
-        margin-top: 40px;
-    }
-
-    .image-card {
-        position: relative;
-        width: 100%;
-        height: 250px;
-        margin-bottom: 20px;
-        right: auto;
-        top: auto;
-    }
-
-    .image-card-2 {
-        margin-top: -30px;
-    }
+.gallery-item p {
+    padding: 0 20px 20px;
 }
