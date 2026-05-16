@@ -5,7 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const closeModal = document.getElementById("closeModal");
 
-    const galleryImages = document.querySelectorAll(".zoomable-image");
+    /*
+    |--------------------------------------------------------------------------
+    | Safety Check
+    |--------------------------------------------------------------------------
+    */
+
+    if (!modal || !modalImage || !closeModal) {
+        console.error("Modal elements not found.");
+
+        return;
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -13,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     |--------------------------------------------------------------------------
     */
 
-    galleryImages.forEach((image) => {
+    document.querySelectorAll(".zoomable-image").forEach((image) => {
         image.addEventListener("click", function () {
             modal.style.display = "flex";
 
@@ -25,17 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Close Modal Button
+    | Close Button
     |--------------------------------------------------------------------------
     */
 
-    closeModal.addEventListener("click", function () {
-        closeImageModal();
-    });
+    closeModal.addEventListener("click", closeImageModal);
 
     /*
     |--------------------------------------------------------------------------
-    | Click Outside Close
+    | Click Outside
     |--------------------------------------------------------------------------
     */
 
@@ -47,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*
     |--------------------------------------------------------------------------
-    | ESC Key Close
+    | ESC Key
     |--------------------------------------------------------------------------
     */
 
@@ -59,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Reusable Close Function
+    | Close Function
     |--------------------------------------------------------------------------
     */
 

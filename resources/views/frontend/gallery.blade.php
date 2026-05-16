@@ -83,4 +83,3 @@
     @include('frontend.partials.image-zoom-modal')
     @include('frontend.welcome_page.footer')
 @endsection
-{{--
