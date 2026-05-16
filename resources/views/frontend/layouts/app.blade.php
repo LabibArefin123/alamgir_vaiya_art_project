@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/custom_gallery.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/zoom_modal.css') }}">
 </head>
 
 <body>
@@ -39,8 +41,11 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/frontend/about-gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>
     <script src="{{ asset('js/frontend/back-to-top.js') }}"></script>
+    <script src="{{ asset('js/frontend/gallery-page/gallery.js') }}"></script>
+    <script src="{{ asset('js/frontend/gallery-page/image-zoom-modal.js') }}"></script>
     <!-- External JS only -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -82,19 +82,31 @@
 
         <div class="art-preview">
 
-            <div class="art-item">
-                <h3>Artwork Title One</h3>
-                <p>Short artwork description here.</p>
+            <!-- Left Image -->
+            <div class="art-item image-card">
+
+                @if (isset($latestImages[0]))
+                    <img src="{{ $latestImages[0] }}" alt="Artwork">
+                @endif
+
             </div>
 
-            <div class="art-item">
-                <h3>Artwork Title Two</h3>
-                <p>Short artwork description here.</p>
+            <!-- Middle Button -->
+            <div class="art-item gallery-button-box">
+
+                <a href="{{ route('gallery') }}" class="view-gallery-btn">
+                    View More Gallery
+                </a>
+
             </div>
 
-            <div class="art-item">
-                <h3>Artwork Title Three</h3>
-                <p>Short artwork description here.</p>
+            <!-- Right Image -->
+            <div class="art-item image-card">
+
+                @if (isset($latestImages[1]))
+                    <img src="{{ $latestImages[1] }}" alt="Artwork">
+                @endif
+
             </div>
 
         </div>
