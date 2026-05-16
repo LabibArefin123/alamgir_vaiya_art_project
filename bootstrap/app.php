@@ -12,17 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
-            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
-            'developer.mode' => \App\Http\Middleware\DeveloperModeMiddleware::class,
-            'check_banned_device' => \App\Http\Middleware\CheckBannedDevice::class,
-            'detect.attack' => \App\Http\Middleware\DetectAttack::class,
+          
         ]);
         // ✅ ADD THIS PART (IMPORTANT)
-        $middleware->web(append: [
-            \App\Http\Middleware\UpdateLastSeen::class,
-        ]);
+       
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -1,29 +1,22 @@
-@php
-    $layout = $settings->navbar_layout ?? 1;
-@endphp
+{{-- resources/views/frontend/welcome_page/header.blade.php --}}
 
-<!-- Topbars -->
-<div id="topbar1" class="topbar-layout" @if ($layout != 1) style="display:none" @endif>
-    @include('frontend.layouts.topbars.topbar_1')
-</div>
+<header>
+    <nav>
+        <div class="container">
+            <div class="navbar">
+                <div class="nav-left">
+                    <h2>Alamgir Hai</h2>
+                    <small>Artist</small>
+                </div>
 
-<div id="topbar2" class="topbar-layout" @if ($layout != 2) style="display:none" @endif>
-    @include('frontend.layouts.topbars.topbar_2')
-</div>
-
-<div id="topbar3" class="topbar-layout" @if ($layout != 3) style="display:none" @endif>
-    @include('frontend.layouts.topbars.topbar_3')
-</div>
-
-<!-- Navbars -->
-<div id="navbar1" class="navbar-layout" @if ($layout != 1) style="display:none" @endif>
-    @include('frontend.layouts.navbars.navbar_1')
-</div>
-
-<div id="navbar2" class="navbar-layout" @if ($layout != 2) style="display:none" @endif>
-    @include('frontend.layouts.navbars.navbar_2')
-</div>
-
-<div id="navbar3" class="navbar-layout" @if ($layout != 3) style="display:none" @endif>
-    @include('frontend.layouts.navbars.navbar_3')
-</div>
+                <div class="nav-right">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#journey">Journey</a>
+                    <a href="#artworks">Artworks</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
