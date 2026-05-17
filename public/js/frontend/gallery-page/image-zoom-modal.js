@@ -23,11 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
     |--------------------------------------------------------------------------
     */
 
-    document.querySelectorAll(".zoomable-image").forEach((image) => {
-        image.addEventListener("click", function () {
+    document.querySelectorAll(".gallery-card").forEach((card) => {
+        card.addEventListener("click", function () {
+            const image = card.querySelector(".zoomable-image");
+
+            if (!image) return;
+
             modal.style.display = "flex";
 
-            modalImage.src = this.src;
+            modalImage.src = image.src;
 
             document.body.style.overflow = "hidden";
         });
@@ -39,7 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
     |--------------------------------------------------------------------------
     */
 
-    closeModal.addEventListener("click", closeImageModal);
+    closeModal.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        closeImageModal();
+    });
 
     /*
     |--------------------------------------------------------------------------
