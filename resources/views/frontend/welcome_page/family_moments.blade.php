@@ -58,9 +58,9 @@
                 </div>
 
                 {{-- Image 5 --}}
-                <div class="family-grid-item" data-image="{{ asset('uploads/images/family_section/image_5.png') }}">
+                <div class="family-grid-item" data-image="{{ asset('uploads/images/family_section/image_5.jpg') }}">
 
-                    <img src="{{ asset('uploads/images/family_section/image_5.png') }}" alt="Family Image 5">
+                    <img src="{{ asset('uploads/images/family_section/image_5.jpg') }}" alt="Family Image 5">
 
                 </div>
 
