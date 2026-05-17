@@ -17,13 +17,17 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <!-- AOS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <!-- Vite (ONLY JS ENTRY POINT) -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_heading.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_timeline.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_sections.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_cards.css') }}">
@@ -50,13 +54,12 @@
         </main>
         @include('frontend.partials.image-zoom-modal')
     </div>
+
     <script src="{{ asset('js/frontend/about-gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>
     <script src="{{ asset('js/frontend/back-to-top.js') }}"></script>
     <script src="{{ asset('js/frontend/gallery-page/gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/gallery-page/image-zoom-modal.js') }}"></script>
-    <!-- External JS only -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

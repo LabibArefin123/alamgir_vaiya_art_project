@@ -1,0 +1,18 @@
+/* =========================================
+   JOURNEY SECTION
+========================================= */
+
+#journey {
+    position: relative;
+
+    padding: 120px 0;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #f7f7f7 50%,
+        #ffffff 100%
+    );
+
+    overflow: hidden;
+}
