@@ -1,18 +1,94 @@
-document.addEventListener("DOMContentLoaded", async function () {
-    const image1 = document.getElementById("gallery-image-1");
-    const image2 = document.getElementById("gallery-image-2");
+document.addEventListener("DOMContentLoaded", function () {
+    const filterDropdown = document.getElementById("galleryFilter");
 
-    try {
-        // Fetch latest gallery images
-        const response = await fetch("/latest-gallery-images");
+    const searchInput = document.getElementById("gallerySearch");
 
-        const data = await response.json();
+    const galleryCards = document.querySelectorAll(".gallery-card");
 
-        if (data.length >= 2) {
-            image1.src = data[0];
-            image2.src = data[1];
+    const visiblePhotoCount = document.getElementById("visiblePhotoCount");
+
+    const noGalleryFound = document.getElementById("noGalleryFound");
+
+    /*
+    |--------------------------------------------------------------------------
+    | Update Gallery
+    |--------------------------------------------------------------------------
+    */
+
+    function filterGallery() {
+        const selectedFilter = filterDropdown.value.toLowerCase();
+
+        const searchValue = searchInput.value.toLowerCase().trim();
+
+        let visibleCount = 0;
+
+        galleryCards.forEach((card) => {
+            const category = card.dataset.category.toLowerCase();
+
+            const date = card.dataset.date.toLowerCase();
+
+            /*
+            |--------------------------------------------------------------------------
+            | Matching Logic
+            |--------------------------------------------------------------------------
+            */
+
+            const matchesDropdown =
+                selectedFilter === "all" || category === selectedFilter;
+
+            const matchesSearch = date.includes(searchValue);
+
+            /*
+            |--------------------------------------------------------------------------
+            | Show / Hide
+            |--------------------------------------------------------------------------
+            */
+
+            if (matchesDropdown && matchesSearch) {
+                card.style.display = "block";
+
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update Counter
+        |--------------------------------------------------------------------------
+        */
+
+        visiblePhotoCount.textContent = visibleCount;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Empty State
+        |--------------------------------------------------------------------------
+        */
+
+        if (visibleCount === 0) {
+            noGalleryFound.style.display = "flex";
+        } else {
+            noGalleryFound.style.display = "none";
         }
-    } catch (error) {
-        console.error("Gallery loading error:", error);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Initial Run
+    |--------------------------------------------------------------------------
+    */
+
+    filterGallery();
+
+    /*
+    |--------------------------------------------------------------------------
+    | Events
+    |--------------------------------------------------------------------------
+    */
+
+    filterDropdown.addEventListener("change", filterGallery);
+
+    searchInput.addEventListener("keyup", filterGallery);
 });

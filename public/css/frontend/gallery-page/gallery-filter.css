@@ -5,7 +5,7 @@
 .gallery-filter-wrapper {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
@@ -17,45 +17,90 @@
     position: relative;
 }
 
-.gallery-search-box input {
-    width: 280px;
-    height: 54px;
-    border: 1px solid #ddd;
-    border-radius: 60px;
-    padding: 0 22px;
-    outline: none;
-    background: #fff;
+.gallery-search-box i {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
     font-size: 15px;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.gallery-search-box input {
+    width: 320px;
+    height: 58px;
+
+    border: 1px solid #e4e4e4;
+
+    border-radius: 60px;
+
+    padding: 0 24px 0 52px;
+
+    outline: none;
+
+    background: #fff;
+
+    font-size: 15px;
+
+    transition: 0.35s ease;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 }
 
 .gallery-search-box input:focus {
     border-color: #111;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================
    Dropdown
 ========================================= */
 
-.gallery-dropdown-box select {
-    min-width: 260px;
-    height: 54px;
-    border-radius: 60px;
-    border: 1px solid #ddd;
-    background: #fff;
-    padding: 0 20px;
-    outline: none;
-    cursor: pointer;
+.gallery-dropdown-box {
+    position: relative;
+}
+
+.gallery-dropdown-box i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
     font-size: 15px;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    z-index: 2;
+}
+
+.gallery-dropdown-box select {
+    min-width: 290px;
+
+    height: 58px;
+
+    border-radius: 60px;
+
+    border: 1px solid #e4e4e4;
+
+    background: #fff;
+
+    padding: 0 22px 0 52px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    appearance: none;
+
+    transition: 0.35s ease;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 }
 
 .gallery-dropdown-box select:focus {
     border-color: #111;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================
@@ -65,7 +110,9 @@
 @media (max-width: 768px) {
     .gallery-filter-wrapper {
         width: 100%;
+
         flex-direction: column;
+
         align-items: stretch;
     }
 

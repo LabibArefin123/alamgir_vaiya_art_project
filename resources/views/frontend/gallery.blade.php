@@ -12,19 +12,46 @@
 
             <div class="gallery-top">
 
-                <h2>Art Gallery</h2>
+                {{-- LEFT --}}
+                <div class="gallery-top-left">
 
+                    <h2>Art Gallery</h2>
+
+                    <p>
+                        Explore artistic collections, exhibitions,
+                        cultural memories, and visual storytelling
+                        by Alamgir Hai.
+                    </p>
+
+                    {{-- LIVE COUNT --}}
+                    <div class="gallery-total-images">
+
+                        <span id="visiblePhotoCount">
+                            {{ collect($galleryFolders)->sum(fn($folder) => count($folder['images'])) }}
+                        </span>
+
+                        Photos Available
+
+                    </div>
+
+                </div>
+
+                {{-- RIGHT --}}
                 <div class="gallery-filter-wrapper">
 
                     <!-- Search -->
                     <div class="gallery-search-box">
 
+                        <i class="bi bi-search"></i>
+
                         <input type="text" id="gallerySearch" placeholder="Search by date...">
 
                     </div>
 
-                    <!-- Dropdown Filter -->
+                    <!-- Filter -->
                     <div class="gallery-dropdown-box">
+
+                        <i class="bi bi-calendar-event"></i>
 
                         <select id="galleryFilter">
 
@@ -58,6 +85,8 @@
 
             </div>
 
+           
+
             <div class="gallery-grid">
 
                 @foreach ($galleryFolders as $folder)
@@ -88,9 +117,23 @@
 
             </div>
 
+            <div class="no-gallery-found" id="noGalleryFound">
+
+                <div class="no-gallery-icon">
+                    <i class="bi bi-images"></i>
+                </div>
+
+                <h3>No Photos Found</h3>
+
+                <p>
+                    Try another date or gallery category.
+                </p>
+
+            </div>
+
         </div>
 
     </section>
-   
+
     @include('frontend.welcome_page.footer')
 @endsection
