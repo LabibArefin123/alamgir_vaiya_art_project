@@ -42,6 +42,7 @@
         <main>
             @yield('content')
         </main>
+         @include('frontend.partials.image-zoom-modal')
     </div>
     <script src="{{ asset('js/frontend/about-gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>

@@ -21,17 +21,44 @@ document.addEventListener("DOMContentLoaded", function () {
     |--------------------------------------------------------------------------
     | Open Modal
     |--------------------------------------------------------------------------
+    |
+    | Works for:
+    | - .gallery-card
+    | - .image-card
+    |--------------------------------------------------------------------------
     */
 
-    document.querySelectorAll(".gallery-card").forEach((card) => {
+    const clickableCards = document.querySelectorAll(
+        ".gallery-card, .image-card",
+    );
+
+    clickableCards.forEach((card) => {
         card.addEventListener("click", function () {
             const image = card.querySelector(".zoomable-image");
 
             if (!image) return;
 
-            modal.style.display = "flex";
+            /*
+            |--------------------------------------------------------------------------
+            | Set Image
+            |--------------------------------------------------------------------------
+            */
 
             modalImage.src = image.src;
+
+            /*
+            |--------------------------------------------------------------------------
+            | Open Modal
+            |--------------------------------------------------------------------------
+            */
+
+            modal.style.display = "flex";
+
+            /*
+            |--------------------------------------------------------------------------
+            | Prevent Scroll
+            |--------------------------------------------------------------------------
+            */
 
             document.body.style.overflow = "hidden";
         });
