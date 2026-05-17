@@ -42,7 +42,7 @@ class WelcomePageController extends Controller
                     }
 
                     // Only take 2 images
-                    if (count($latestImages) >= 2) {
+                    if (count($latestImages) >= 3) {
                         break 2;
                     }
                 }

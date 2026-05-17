@@ -86,31 +86,33 @@
             <div class="art-item image-card">
 
                 @if (isset($latestImages[0]))
-                    <img src="{{ $latestImages[0] }}" alt="Artwork">
+                    <img src="{{ $latestImages[0] }}" alt="Artwork" class="zoomable-image">
                 @endif
 
             </div>
 
-            <!-- Middle Button -->
-            <div class="art-item gallery-button-box">
-
-                <a href="{{ route('gallery') }}" class="view-gallery-btn">
-                    View More Gallery
-                </a>
-
-            </div>
-
-            <!-- Right Image -->
+            <!-- Image 2 -->
             <div class="art-item image-card">
 
                 @if (isset($latestImages[1]))
-                    <img src="{{ $latestImages[1] }}" alt="Artwork">
+                    <img src="{{ $latestImages[1] }}" alt="Artwork" class="zoomable-image">
+                @endif
+
+            </div>
+
+            <!-- Image 3-->
+            <div class="art-item image-card">
+
+                @if (isset($latestImages[2]))
+                    <img src="{{ $latestImages[2] }}" alt="Artwork" class="zoomable-image">
                 @endif
 
             </div>
 
         </div>
-
+        <a href="{{ route('gallery') }}" class="view-gallery-btn" style="">
+            View More Gallery
+        </a>
     </div>
 </section>
 
