@@ -67,6 +67,17 @@
 
                             <img src="{{ $image }}" alt="Gallery Image" class="zoomable-image">
 
+                            <!-- Overlay -->
+                            <div class="gallery-overlay">
+
+                                <button type="button" class="view-image-btn">
+                                    <i class="bi bi-search"></i>
+                                    View Image
+                                </button>
+
+                            </div>
+
+                            <!-- Date -->
                             <div class="gallery-date">
                                 {{ $folder['date'] }}
                             </div>

@@ -9,8 +9,7 @@
     background: #fff;
     cursor: pointer;
     transition: 0.4s ease;
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 /* =========================================
@@ -31,8 +30,7 @@
 
 .gallery-card:hover {
     transform: translateY(-8px);
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 .gallery-card:hover img {
@@ -47,7 +45,7 @@
     position: absolute;
     top: 18px;
     left: 18px;
-    background: rgba(0,0,0,0.72);
+    background: rgba(0, 0, 0, 0.72);
     color: #fff;
     padding: 10px 16px;
     border-radius: 50px;
@@ -65,12 +63,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.35),
-            transparent 50%
-        );
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 50%);
 
     opacity: 0;
     transition: 0.4s ease;
@@ -81,11 +74,79 @@
 }
 
 /* =========================================
+   Overlay
+========================================= */
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s ease;
+
+    z-index: 2;
+}
+
+/* =========================================
+   View Button
+========================================= */
+
+.view-image-btn {
+    border: none;
+
+    background: #fff;
+    color: #111;
+
+    padding: 14px 28px;
+
+    border-radius: 60px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    transform: translateY(20px);
+
+    transition: 0.35s ease;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.view-image-btn i {
+    font-size: 18px;
+}
+
+/* =========================================
+   Hover Effects
+========================================= */
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-card:hover .view-image-btn {
+    transform: translateY(0);
+}
+
+/* =========================================
    Mobile
 ========================================= */
 
 @media (max-width: 768px) {
-
     .gallery-card img {
         height: 260px;
     }
