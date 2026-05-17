@@ -10,7 +10,7 @@ class WelcomePageController extends Controller
 {
     public function index()
     {
-        $basePath = public_path('uploads/images');
+        $basePath = public_path('uploads/images/art_images');
 
         $latestImages = [];
 
@@ -19,12 +19,14 @@ class WelcomePageController extends Controller
             // Get all folders
             $folders = File::directories($basePath);
 
-            // Sort folders by latest modified date
+            // Sort latest folders first
             usort($folders, function ($a, $b) {
                 return filemtime($b) - filemtime($a);
             });
 
             foreach ($folders as $folder) {
+
+                $folderName = basename($folder);
 
                 $images = File::files($folder);
 
@@ -35,13 +37,13 @@ class WelcomePageController extends Controller
                     if (in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
 
                         $latestImages[] = asset(
-                            'uploads/images/' .
-                                basename($folder) . '/' .
+                            'uploads/images/art_images/' .
+                                $folderName . '/' .
                                 $image->getFilename()
                         );
                     }
 
-                    // Only take 2 images
+                    // Only take 3 images
                     if (count($latestImages) >= 3) {
                         break 2;
                     }
@@ -49,11 +51,21 @@ class WelcomePageController extends Controller
             }
         }
 
-        return view('frontend.welcome', compact('latestImages'));
+        return view(
+            'frontend.welcome',
+            compact('latestImages')
+        );
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | GALLERY PAGE
+    |--------------------------------------------------------------------------
+    */
+
     public function gallery()
     {
-        $basePath = public_path('uploads/images');
+        $basePath = public_path('uploads/images/art_images');
 
         $galleryFolders = [];
 
@@ -68,13 +80,11 @@ class WelcomePageController extends Controller
                 try {
 
                     /*
-                |--------------------------------------------------------------------------
-                | Convert Folder Name To Real Date
-                |--------------------------------------------------------------------------
-                | Example:
-                | 2 November 2021
-                |--------------------------------------------------------------------------
-                */
+                    |--------------------------------------------------------------------------
+                    | Example Folder Name:
+                    | 2 November 2021
+                    |--------------------------------------------------------------------------
+                    */
 
                     $carbonDate = Carbon::createFromFormat(
                         'j F Y',
@@ -93,10 +103,10 @@ class WelcomePageController extends Controller
             })->filter();
 
             /*
-        |--------------------------------------------------------------------------
-        | Sort Latest To Oldest Properly
-        |--------------------------------------------------------------------------
-        */
+            |--------------------------------------------------------------------------
+            | Sort Latest To Oldest
+            |--------------------------------------------------------------------------
+            */
 
             $folderCollection = $folderCollection
                 ->sortByDesc('date')
@@ -114,7 +124,14 @@ class WelcomePageController extends Controller
                 $monthYear = $folderData['date']
                     ->format('F Y');
 
+                /*
+                |--------------------------------------------------------------------------
+                | GET IMAGES
+                |--------------------------------------------------------------------------
+                */
+
                 $images = collect(File::files($folder))
+
                     ->filter(function ($file) {
 
                         return in_array(
@@ -122,23 +139,35 @@ class WelcomePageController extends Controller
                             ['jpg', 'jpeg', 'png', 'webp']
                         );
                     })
+
                     ->map(function ($file) use ($folderName) {
 
                         return asset(
-                            'uploads/images/' .
+                            'uploads/images/art_images/' .
                                 $folderName . '/' .
                                 $file->getFilename()
                         );
                     })
+
                     ->values()
                     ->toArray();
+
+                /*
+                |--------------------------------------------------------------------------
+                | PUSH TO ARRAY
+                |--------------------------------------------------------------------------
+                */
 
                 if (!empty($images)) {
 
                     $galleryFolders[] = [
+
                         'date'        => $formattedDate,
+
                         'month_year'  => $monthYear,
+
                         'slug'        => Str::slug($folderName),
+
                         'images'      => $images,
                     ];
                 }

@@ -200,16 +200,3 @@
         </a>
     </div>
 </section>
-
-<section id="contact">
-    <div class="container">
-
-        <h2>Contact</h2>
-
-        <p>
-            For exhibitions, collaborations, media inquiries,
-            or artwork collections, please contact the gallery.
-        </p>
-
-    </div>
-</section>

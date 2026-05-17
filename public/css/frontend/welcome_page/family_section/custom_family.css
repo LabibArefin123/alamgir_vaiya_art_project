@@ -1,0 +1,246 @@
+/* ========================================
+   FAMILY SECTION
+======================================== */
+
+#family-section {
+    padding: 100px 0;
+    background: #f8f5f0;
+    overflow: hidden;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.family-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.family-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.family-header p {
+    max-width: 720px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #666;
+}
+
+/* ========================================
+   MAIN SHOWCASE
+======================================== */
+
+.family-showcase {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 35px;
+    align-items: stretch;
+}
+
+/* ========================================
+   FEATURED IMAGE
+======================================== */
+
+.family-featured-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    min-height: 720px;
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.family-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition:
+        transform 0.7s ease,
+        opacity 0.4s ease;
+}
+
+/* Zoom Hover */
+.family-featured-image:hover img {
+    transform: scale(1.06);
+}
+
+/* Image animation */
+.family-featured-image img.show {
+    animation: fadeZoom 0.5s ease;
+}
+
+@keyframes fadeZoom {
+    from {
+        opacity: 0.4;
+        transform: scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   RIGHT GRID
+======================================== */
+
+.family-image-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+/* ========================================
+   GRID CARD
+======================================== */
+
+.family-grid-item {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    background: #fff;
+
+    height: 230px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
+    transition: 0.4s ease;
+}
+
+/* Active */
+.family-grid-item.active {
+    border: 4px solid #c8a97e;
+}
+
+/* Hover */
+.family-grid-item:hover {
+    transform: translateY(-6px);
+}
+
+/* Image */
+.family-grid-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+/* Zoom */
+.family-grid-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay */
+.family-grid-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transition: 0.4s ease;
+
+    z-index: 1;
+}
+
+.family-grid-item:hover::before {
+    opacity: 1;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1200px) {
+    .family-featured-image {
+        min-height: 650px;
+    }
+}
+
+@media (max-width: 992px) {
+    #family-section {
+        padding: 80px 0;
+    }
+
+    .family-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .family-featured-image {
+        min-height: 550px;
+    }
+
+    .family-header h2 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 768px) {
+    .family-header h2 {
+        font-size: 28px;
+    }
+
+    .family-header p {
+        font-size: 15px;
+    }
+
+    .family-image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .family-grid-item {
+        height: 180px;
+    }
+
+    .family-featured-image {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 576px) {
+    #family-section {
+        padding: 60px 0;
+    }
+
+    .family-image-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .family-grid-item {
+        height: 150px;
+    }
+
+    .family-featured-image {
+        min-height: 320px;
+        border-radius: 20px;
+    }
+
+    .family-header {
+        margin-bottom: 40px;
+    }
+}
