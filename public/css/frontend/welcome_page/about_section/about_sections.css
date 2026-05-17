@@ -1,0 +1,19 @@
+/* =========================================
+   About Section
+========================================= */
+
+#about,
+#journey,
+#education,
+#artworks,
+#contact {
+    position: relative;
+}
+
+/* =========================================
+   Artwork Section
+========================================= */
+
+#artworks .container {
+    text-align: center;
+}

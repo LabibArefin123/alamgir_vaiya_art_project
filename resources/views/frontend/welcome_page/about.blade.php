@@ -33,20 +33,19 @@
         <h2>Professional Journey</h2>
 
         <div class="journey-item">
-            <h3>Chairman — Momentum Media Limited</h3>
-            <p>13 February 1991 – Present</p>
+            <h3>Vice-Chairman — Pharmasia Limited</h3>
+            <p>7 May 2012 – Present</p>
         </div>
 
         <div class="journey-item">
-            <h3>Vice-Chairman — Pharmasia Limited</h3>
-            <p>7 May 2012 – Present</p>
+            <h3>Chairman — Momentum Media Limited</h3>
+            <p>13 February 1991 – Present</p>
         </div>
 
         <div class="journey-item">
             <h3>Ex-Professor — BM College, Barisal</h3>
             <p>23 October 1991 – 30 December 1997</p>
         </div>
-
     </div>
 </section>
 

@@ -24,7 +24,13 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_sections.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_cards.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/artwork_cards.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/artwork_grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/gallery_preview.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/gallery_button.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-filter.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
@@ -42,7 +48,7 @@
         <main>
             @yield('content')
         </main>
-         @include('frontend.partials.image-zoom-modal')
+        @include('frontend.partials.image-zoom-modal')
     </div>
     <script src="{{ asset('js/frontend/about-gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>
