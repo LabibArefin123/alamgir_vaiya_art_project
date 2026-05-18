@@ -1,0 +1,44 @@
+/* ========================================
+   GRID ITEM
+======================================== */
+
+.family-grid-item {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    background: #fff;
+
+    aspect-ratio: 1 / 1;
+
+    min-height: 220px;
+
+    border: 3px solid transparent;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Active */
+
+.family-grid-item.active {
+    border-color: #c8a97e;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Hover */
+
+.family-grid-item:hover {
+    transform: translateY(-5px);
+}

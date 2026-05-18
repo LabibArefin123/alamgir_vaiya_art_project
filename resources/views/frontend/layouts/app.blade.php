@@ -36,7 +36,9 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/gallery_preview.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/gallery_button.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/family_section/custom_family.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/family_section/family-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/family_section/family-grid-image.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/family_section/family-responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-top.css') }}">
