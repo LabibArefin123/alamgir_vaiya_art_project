@@ -84,38 +84,145 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-        const mainImage = document.getElementById('family-main-image');
+        const mainImage =
+            document.getElementById('family-main-image');
 
-        const thumbnails = document.querySelectorAll('.family-grid-item');
+        const thumbnails =
+            document.querySelectorAll('.family-grid-item');
 
-        thumbnails.forEach(item => {
+        /*
+        |--------------------------------------------------------------------------
+        | Safety
+        |--------------------------------------------------------------------------
+        */
 
-            item.addEventListener('click', function() {
+        if (!mainImage || thumbnails.length === 0) {
+            return;
+        }
 
-                // Remove active class
-                thumbnails.forEach(el => {
-                    el.classList.remove('active');
-                });
+        /*
+        |--------------------------------------------------------------------------
+        | Current Index
+        |--------------------------------------------------------------------------
+        */
 
-                // Add active class
-                this.classList.add('active');
+        let currentIndex = 0;
 
-                // Change main image
-                const image = this.getAttribute('data-image');
+        /*
+        |--------------------------------------------------------------------------
+        | Initial Image
+        |--------------------------------------------------------------------------
+        */
 
-                mainImage.classList.remove('show');
+        const firstImage =
+            thumbnails[0].getAttribute('data-image');
 
-                setTimeout(() => {
+        mainImage.src = firstImage;
 
-                    mainImage.src = image;
+        thumbnails[0].classList.add('active');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Change Main Image
+        |--------------------------------------------------------------------------
+        */
+
+        function changeMainImage(index) {
+
+            const selectedItem =
+                thumbnails[index];
+
+            const newImage =
+                selectedItem.getAttribute('data-image');
+
+            /*
+            |--------------------------------------------------------------------------
+            | Remove Active
+            |--------------------------------------------------------------------------
+            */
+
+            thumbnails.forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            /*
+            |--------------------------------------------------------------------------
+            | Active Current
+            |--------------------------------------------------------------------------
+            */
+
+            selectedItem.classList.add('active');
+
+            /*
+            |--------------------------------------------------------------------------
+            | Animation
+            |--------------------------------------------------------------------------
+            */
+
+            mainImage.style.opacity = '0';
+
+            setTimeout(() => {
+
+                mainImage.src = newImage;
+
+                mainImage.onload = function() {
+
+                    mainImage.classList.remove('show');
+
+                    void mainImage.offsetWidth;
 
                     mainImage.classList.add('show');
 
-                }, 150);
+                    mainImage.style.opacity = '1';
+                };
 
+            }, 180);
+
+            currentIndex = index;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Hover Image Change
+        |--------------------------------------------------------------------------
+        */
+
+        thumbnails.forEach((item, index) => {
+
+            item.addEventListener('mouseenter', function() {
+
+                changeMainImage(index);
             });
 
+            /*
+            |--------------------------------------------------------------------------
+            | Click Support
+            |--------------------------------------------------------------------------
+            */
+
+            item.addEventListener('click', function() {
+
+                changeMainImage(index);
+            });
         });
+
+        /*
+        |--------------------------------------------------------------------------
+        | Auto Loop Every 15 Seconds
+        |--------------------------------------------------------------------------
+        */
+
+        setInterval(() => {
+
+            currentIndex++;
+
+            if (currentIndex >= thumbnails.length) {
+                currentIndex = 0;
+            }
+
+            changeMainImage(currentIndex);
+
+        }, 15000);
 
     });
 </script>
