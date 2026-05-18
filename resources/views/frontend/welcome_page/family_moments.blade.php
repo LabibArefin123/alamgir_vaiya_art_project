@@ -58,6 +58,7 @@
                 </div>
 
                 {{-- Image 5 --}}
+
                 <div class="family-grid-item" data-image="{{ asset('uploads/images/family_section/image_5.jpg') }}">
 
                     <img src="{{ asset('uploads/images/family_section/image_5.jpg') }}" alt="Family Image 5">
@@ -65,9 +66,9 @@
                 </div>
 
                 {{-- Image 6 --}}
-                <div class="family-grid-item" data-image="{{ asset('uploads/images/family_section/image_6.png') }}">
+                <div class="family-grid-item" data-image="{{ asset('uploads/images/family_section/image_6.jpg') }}">
 
-                    <img src="{{ asset('uploads/images/family_section/image_6.png') }}" alt="Family Image 6">
+                    <img src="{{ asset('uploads/images/family_section/image_6.jpg') }}" alt="Family Image 6">
 
                 </div>
 
