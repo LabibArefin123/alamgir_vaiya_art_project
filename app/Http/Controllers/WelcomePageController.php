@@ -16,34 +16,106 @@ class WelcomePageController extends Controller
 
         if (File::exists($basePath)) {
 
-            // Get all folders
+            /*
+        |------------------------------------------------------------------
+        | Get All Folders
+        |------------------------------------------------------------------
+        */
+
             $folders = File::directories($basePath);
 
-            // Sort latest folders first
-            usort($folders, function ($a, $b) {
-                return filemtime($b) - filemtime($a);
-            });
+            /*
+        |------------------------------------------------------------------
+        | Convert Folder Name To Carbon Date
+        | Example:
+        | 2 November 2021
+        |------------------------------------------------------------------
+        */
 
-            foreach ($folders as $folder) {
+            $folderCollection = collect($folders)->map(function ($folder) {
 
                 $folderName = basename($folder);
 
-                $images = File::files($folder);
+                try {
+
+                    $carbonDate = \Carbon\Carbon::createFromFormat(
+                        'j F Y',
+                        $folderName
+                    );
+                } catch (\Exception $e) {
+
+                    return null;
+                }
+
+                return [
+
+                    'path' => $folder,
+
+                    'name' => $folderName,
+
+                    'date' => $carbonDate,
+                ];
+            })->filter();
+
+            /*
+        |------------------------------------------------------------------
+        | Sort Latest Folder By Date
+        |------------------------------------------------------------------
+        */
+
+            $folderCollection = $folderCollection
+                ->sortByDesc('date')
+                ->values();
+
+            /*
+        |------------------------------------------------------------------
+        | Get Images From Latest Folders
+        |------------------------------------------------------------------
+        */
+
+            foreach ($folderCollection as $folderData) {
+
+                $folder = $folderData['path'];
+
+                $folderName = $folderData['name'];
+
+                $images = collect(File::files($folder))
+
+                    ->filter(function ($file) {
+
+                        return in_array(
+                            strtolower($file->getExtension()),
+                            ['jpg', 'jpeg', 'png', 'webp']
+                        );
+                    })
+
+                    ->map(function ($file) use ($folderName) {
+
+                        return asset(
+                            'uploads/images/art_images/' .
+                                $folderName . '/' .
+                                $file->getFilename()
+                        );
+                    })
+
+                    ->values();
+
+                /*
+            |------------------------------------------------------------------
+            | Push Images
+            |------------------------------------------------------------------
+            */
 
                 foreach ($images as $image) {
 
-                    $extension = strtolower($image->getExtension());
+                    $latestImages[] = $image;
 
-                    if (in_array($extension, ['jpg', 'jpeg', 'png', 'webp'])) {
+                    /*
+                |--------------------------------------------------------------
+                | Only 3 Images
+                |--------------------------------------------------------------
+                */
 
-                        $latestImages[] = asset(
-                            'uploads/images/art_images/' .
-                                $folderName . '/' .
-                                $image->getFilename()
-                        );
-                    }
-
-                    // Only take 3 images
                     if (count($latestImages) >= 3) {
                         break 2;
                     }
