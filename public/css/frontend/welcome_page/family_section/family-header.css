@@ -1,0 +1,26 @@
+/* ========================================
+   HEADER
+======================================== */
+
+.family-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.family-header h2 {
+    font-size: 46px;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.family-header p {
+    max-width: 760px;
+    margin: auto;
+
+    font-size: 17px;
+    line-height: 1.9;
+
+    color: #666;
+}
