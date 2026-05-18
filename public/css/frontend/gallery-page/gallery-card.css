@@ -25,19 +25,6 @@
 }
 
 /* =========================================
-   Hover
-========================================= */
-
-.gallery-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-}
-
-.gallery-card:hover img {
-    transform: scale(1.08);
-}
-
-/* =========================================
    Date Badge
 ========================================= */
 
@@ -55,23 +42,6 @@
     backdrop-filter: blur(8px);
 }
 
-/* =========================================
-   Gradient Overlay
-========================================= */
-
-.gallery-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: 0.4s ease;
-}
-
-.gallery-card:hover::after {
-    opacity: 1;
-}
 
 /* =========================================
    Overlay

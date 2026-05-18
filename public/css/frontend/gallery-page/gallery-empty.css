@@ -1,0 +1,31 @@
+/* =========================================
+   Empty State
+========================================= */
+
+.no-gallery-found {
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 90px 20px;
+}
+
+.no-gallery-icon i {
+    font-size: 80px;
+
+    color: #d0d0d0;
+}
+
+.no-gallery-found h3 {
+    margin-top: 25px;
+
+    font-size: 32px;
+
+    color: #111;
+}

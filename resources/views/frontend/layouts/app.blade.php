@@ -38,11 +38,15 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/family_section/custom_family.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/testimonial_section/custom_testimonial.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-filter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-top.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-toolbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-filter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-empty.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-advanced-filter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-grid.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card-hover.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/zoom_modal.css') }}">
 </head>
 
