@@ -22,12 +22,17 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/education_section/custom_education.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_heading.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_timeline.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_animation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/journey_section/journey_responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about/about-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about/about-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about/about-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about/about-animation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_sections.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_section/about_cards.css') }}">
@@ -72,6 +77,7 @@
     <script src="{{ asset('js/frontend/about-gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/scroll-progress.js') }}"></script>
     <script src="{{ asset('js/frontend/back-to-top.js') }}"></script>
+    <script src="{{ asset('js/frontend/about_section/swap-card.js') }}"></script>
     <script src="{{ asset('js/frontend/gallery-page/gallery.js') }}"></script>
     <script src="{{ asset('js/frontend/gallery-page/image-zoom-modal.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
