@@ -175,7 +175,7 @@ class WelcomePageController extends Controller
         }
 
         return view(
-            'frontend.gallery',
+            'frontend.gallery_page.gallery',
             compact('galleryFolders')
         );
     }

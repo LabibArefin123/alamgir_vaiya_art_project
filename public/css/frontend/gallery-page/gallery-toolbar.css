@@ -1,0 +1,101 @@
+/* =========================================
+   Toolbar
+========================================= */
+
+.gallery-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.gallery-toolbar-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Total Photos
+========================================= */
+
+.gallery-total-images {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 24px;
+
+    border-radius: 60px;
+
+    background: #f8f8f8;
+
+    border: 1px solid #ececec;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #222;
+}
+
+#visiblePhotoCount {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+/* =========================================
+   Settings Button
+========================================= */
+
+.gallery-setting-btn {
+    width: 58px;
+    height: 58px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: 0.35s ease;
+}
+
+.gallery-setting-btn:hover {
+    transform: rotate(90deg);
+}

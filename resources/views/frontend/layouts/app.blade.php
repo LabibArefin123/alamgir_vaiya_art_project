@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/testimonial_section/custom_testimonial.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-filter.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-toolbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/zoom_modal.css') }}">
