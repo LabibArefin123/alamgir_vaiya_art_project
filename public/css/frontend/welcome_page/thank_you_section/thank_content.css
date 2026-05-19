@@ -1,0 +1,30 @@
+/* =========================================
+   THANK YOU CONTENT
+========================================= */
+
+.thank-you-subtitle {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(37, 211, 102, 0.08);
+    color: #25d366;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.thank-you-content h2 {
+    font-size: 52px;
+    line-height: 1.2;
+    color: #111;
+    margin-bottom: 28px;
+    font-weight: 700;
+}
+
+.thank-you-content p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 22px;
+}

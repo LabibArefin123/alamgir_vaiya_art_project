@@ -1,0 +1,29 @@
+/* =========================================
+   THANK YOU SECTION LAYOUT
+========================================= */
+
+#thank-you-section {
+    position: relative;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    overflow: hidden;
+}
+
+.thank-you-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.thank-you-content {
+    flex: 1;
+    min-width: 320px;
+}
+
+.thank-you-image {
+    position: relative;
+    flex: 1;
+    min-width: 320px;
+}

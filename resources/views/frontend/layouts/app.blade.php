@@ -59,6 +59,10 @@
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/gallery-card-hover.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/gallery-page/zoom_modal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/thank_you_section/thank_layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/thank_you_section/thank_content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/thank_you_section/thank_card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/thank_you_section/thank_button_image.css') }}">
 </head>
 
 <body>
