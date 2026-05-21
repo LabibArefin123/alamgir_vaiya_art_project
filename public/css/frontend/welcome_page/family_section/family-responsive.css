@@ -4,7 +4,13 @@
 
 @media (max-width: 1400px) {
     .family-featured-image {
-        min-height: 680px;
+        min-height: 760px;
+        max-height: 760px;
+    }
+
+    .family-grid-item {
+        min-height: 240px;
+        max-height: 240px;
     }
 }
 
@@ -14,7 +20,8 @@
     }
 
     .family-featured-image {
-        min-height: 620px;
+        min-height: 650px;
+        max-height: 650px;
     }
 
     .family-image-grid {
@@ -32,11 +39,13 @@
     }
 
     .family-featured-image {
-        min-height: 520px;
+        min-height: 540px;
+        max-height: 540px;
     }
 
     .family-grid-item {
-        min-height: 180px;
+        min-height: 200px;
+        max-height: 200px;
     }
 }
 
@@ -59,10 +68,12 @@
 
     .family-featured-image {
         min-height: 420px;
+        max-height: 420px;
     }
 
     .family-grid-item {
         min-height: 160px;
+        max-height: 160px;
     }
 }
 
@@ -81,11 +92,15 @@
 
     .family-featured-image {
         min-height: 300px;
+        max-height: 300px;
+
         border-radius: 18px;
     }
 
     .family-grid-item {
-        min-height: 135px;
+        min-height: 130px;
+        max-height: 130px;
+
         border-radius: 18px;
     }
 

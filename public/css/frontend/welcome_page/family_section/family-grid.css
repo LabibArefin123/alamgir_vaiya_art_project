@@ -9,17 +9,19 @@
 
     border-radius: 22px;
 
+    background: #ffffff;
+
     cursor: pointer;
 
-    background: #fff;
+    min-height: 270px;
 
-    aspect-ratio: 1 / 1;
-
-    min-height: 220px;
+    max-height: 270px;
 
     border: 3px solid transparent;
 
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.05),
+        0 18px 40px rgba(0, 0, 0, 0.06);
 
     transition:
         transform 0.35s ease,
@@ -27,18 +29,20 @@
         box-shadow 0.35s ease;
 }
 
+/* Hover */
+
+.family-grid-item:hover {
+    transform: translateY(-5px);
+}
+
 /* Active */
 
 .family-grid-item.active {
     border-color: #c8a97e;
 
-    transform: translateY(-4px);
-
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
-}
-
-/* Hover */
-
-.family-grid-item:hover {
     transform: translateY(-5px);
+
+    box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.08),
+        0 24px 55px rgba(0, 0, 0, 0.08);
 }

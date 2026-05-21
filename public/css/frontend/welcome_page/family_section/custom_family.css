@@ -1,8 +1,5 @@
-
-
-
 /* ========================================
-   RIGHT GRID
+   GRID LAYOUT
 ======================================== */
 
 .family-image-grid {
@@ -10,11 +7,10 @@
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 22px;
 
-    align-content: start;
+    height: 100%;
 }
-
 
 /* ========================================
    OVERLAY
@@ -27,11 +23,11 @@
 
     inset: 0;
 
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.18), transparent 60%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent 70%);
 
     opacity: 0;
 
-    transition: 0.35s ease;
+    transition: opacity 0.35s ease;
 
     z-index: 1;
 }

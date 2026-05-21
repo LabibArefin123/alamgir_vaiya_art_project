@@ -3,7 +3,12 @@
 ======================================== */
 
 #family-section {
-    padding: 20px 0;
+    padding: 0px 0;
     background: #f8f5f0;
     overflow: hidden;
+    position: relative;
+}
+
+#family-section .container {
+    max-width: 1450px;
 }
